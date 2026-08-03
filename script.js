@@ -65,3 +65,17 @@ const cio = new IntersectionObserver(function (entries) {
   });
 }, { threshold: 0.4 });
 cio.observe(spCount);
+
+const modal = document.getElementById("modal");
+document.querySelectorAll(".js-modal").forEach(function (btn) {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    modal.hidden = false;
+  });
+});
+modal.addEventListener("click", function (e) {
+  if (e.target.closest("[data-close]")) modal.hidden = true;
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") modal.hidden = true;
+});

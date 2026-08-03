@@ -172,11 +172,11 @@
     <section class="cta-section" id="deploy">
       <div class="cta-inner reveal-up">
         <div class="cta-title">PUT MADAR<br />ON THE PROBLEM.</div>
-        <p class="cta-lead">Self-hosted. Admin-controlled. Your data never leaves your network.</p>
-        <div class="hr-actions">
-          <a href="#hero" class="hbtn fill"><span>Get the build</span><span class="a">→</span></a>
-          <a href="mailto:ops@madar.local" class="hbtn"><span>Contact ops</span><span class="a">↗</span></a>
-        </div>
+      <p class="cta-lead">Madar is not ready yet. Join the Discord to get early access.</p>
+      <div class="hr-actions">
+        <a href="#" class="hbtn fill js-modal"><span>Get the build</span><span class="a">↗</span></a>
+        <a href="#" class="hbtn js-modal"><span>Contact ops</span><span class="a">↗</span></a>
+      </div>
       </div>
     </section>
 
@@ -188,7 +188,21 @@
     <a class="ft-ver" href="https://aix-32.github.io/Pazator/" target="_blank" rel="noopener">PAZATOR ↗</a>
   </footer>
 
-  <script src="script.js"></script>
+  <div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box">
+    <div class="modal-label">// STATUS</div>
+    <div class="modal-title">IN THE<br />WORKS<span class="zor-italic">.</span></div>
+    <p class="modal-lead">Madar is still under active development. It is not ready for deployment yet.</p>
+    <p class="modal-sub">Early access, builds and updates land on the Discord first.</p>
+    <div class="modal-actions">
+      <a href="https://discord.gg/74c9RBYD4R" target="_blank" rel="noopener" class="hbtn fill"><span>Join the Discord</span><span class="a">↗</span></a>
+      <button type="button" class="hbtn" data-close><span>Close</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 
 </html>
