@@ -9,10 +9,13 @@ const CAPS = [
   ["06", "AUTOMATED WORKFLOW", "TASTUR rule engine fires on events as fire-and-forget, never blocking a response. Alerts land before the shift changes.", "workflow"],
   ["07", "PZZ3 REASONING AGENT", "A tool-using agent that reads your graph, scores entities and drafts intel, with every write behind a permission round-trip.", "agent"],
   ["08", "RISK ASSESSMENT", "Two-wave LLM intel center. Deterministic extraction, verified flags, confidence you can brief.", "risk"],
-  ["09", "CASES + REPORTS", "Group evidence into cases, ship scoped report runs to CSV or HTML, schedule the recurring ones.", "reports"],
-  ["10", "COLLABORATION", "Org-wide team log, entity notes, subscriptions and notifications. The picture gets built by more than one desk.", "collab"],
-  ["11", "PROJECTS + PBAC", "Everything hangs off projects. Read-gated at the query, writes above your clearance refused.", "security"],
-  ["12", "FULL AUDIT", "Every action recorded, every export redacted, secrets at rest under AES-256-GCM.", "security"]
+  ["09", "PIPELINES + INGEST", "Webhook, incremental or scheduled ETL into the graph. Every run keeps the raw source, so no datum arrives without provenance.", "workflow"],
+  ["10", "CASES + REPORTS", "Group evidence into cases, ship scoped report runs to CSV or HTML, schedule the recurring ones.", "reports"],
+  ["11", "PORTABLE ORG", "Export the whole tenancy to one \".pzm\" file, re-import it elsewhere. IDs remap cleanly inside every structure, secrets redacted.", "reports"],
+  ["12", "COLLABORATION", "Org-wide team log, entity notes, subscriptions and notifications. The picture gets built by more than one desk.", "collab"],
+  ["13", "PROJECTS + PBAC", "Everything hangs off projects. Read-gated at the query, writes above your clearance refused.", "security"],
+  ["14", "AIR-GAPPED FIRST", "Runs on a box with no internet. Offline maps, offline licensing, nothing calls home.", "security"],
+  ["15", "FULL AUDIT", "Every action recorded, every export redacted, secrets at rest under AES-256-GCM.", "security"]
 ];
 
 function capHtml(c) {

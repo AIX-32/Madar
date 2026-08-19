@@ -578,6 +578,23 @@ body::after {
 .modal-title { font-family: var(--display); font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 0.92; color: var(--off); }
 .modal-lead { color: var(--off); margin-top: 24px; font-size: 0.98rem; }
 .modal-sub { color: var(--dim); margin-top: 10px; font-size: 0.85rem; }
+.modal-beta {
+  margin-top: 24px;
+  border: 1px solid rgba(242, 242, 240, 0.14);
+  padding: 18px 20px;
+  background: #0d0d0d;
+}
+.mb-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+}
+.mb-text {
+  margin-top: 8px;
+  color: var(--off);
+  font-size: 0.9rem;
+}
 .modal-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
 button.hbtn { cursor: pointer; background: none; font: inherit; }
 
