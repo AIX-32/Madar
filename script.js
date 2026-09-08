@@ -1,21 +1,24 @@
 "use strict";
 
 const CAPS = [
-  ["01", "OBJECT-CENTRIC ONTOLOGY", "A typed, field-configurable schema for every object: entities, relationships, sources, events. No locked-in models, no rigid tables.", "ontology"],
-  ["02", "ENTITY RESOLUTION", "Score and merge duplicates with a full inversion snapshot. Unmerge safely. Identity stays one object, not ten rows.", "resolution"],
-  ["03", "FACETED SEARCH", "Cross-cut every type by facets, classification and geography. List, or pivot straight to the map.", "search"],
-  ["04", "GEO + TEMPORAL REPLAY", "Coordinates live in metadata. Pattern-of-life replay across time. Scrub the slider and follow the trail.", "geo"],
-  ["05", "CROSS-OBJECT TIMELINE", "Every write, alert and merge lands on one event stream. Every object answers against the same timeline.", "timeline"],
-  ["06", "AUTOMATED WORKFLOW", "TASTUR rule engine fires on events as fire-and-forget, never blocking a response. Alerts land before the shift changes.", "workflow"],
-  ["07", "PZZ3 REASONING AGENT", "A tool-using agent that reads your graph, scores entities and drafts intel, with every write behind a permission round-trip.", "agent"],
-  ["08", "RISK ASSESSMENT", "Two-wave LLM intel center. Deterministic extraction, verified flags, confidence you can brief.", "risk"],
-  ["09", "PIPELINES + INGEST", "Webhook, incremental or scheduled ETL into the graph. Every run keeps the raw source, so no datum arrives without provenance.", "workflow"],
-  ["10", "CASES + REPORTS", "Group evidence into cases, ship scoped report runs to CSV or HTML, schedule the recurring ones.", "reports"],
-  ["11", "PORTABLE ORG", "Export the whole tenancy to one \".pzm\" file, re-import it elsewhere. IDs remap cleanly inside every structure, secrets redacted.", "reports"],
-  ["12", "COLLABORATION", "Org-wide team log, entity notes, subscriptions and notifications. The picture gets built by more than one desk.", "collab"],
-  ["13", "PROJECTS + PBAC", "Everything hangs off projects. Read-gated at the query, writes above your clearance refused.", "security"],
-  ["14", "AIR-GAPPED FIRST", "Runs on a box with no internet. Offline maps, offline licensing, nothing calls home.", "security"],
-  ["15", "FULL AUDIT", "Every action recorded, every export redacted, secrets at rest under AES-256-GCM.", "security"]
+  ["01", "OBJECT-CENTRIC ONTOLOGY", "Typed, field-configurable schema for every object. Live fallback + /ontology, no locked-in models.", "ontology"],
+  ["02", "ENTITY RESOLUTION", "Score and merge duplicates with a full inversion snapshot. Unmerge safely, identity stays one object not ten rows.", "resolution"],
+  ["03", "QSEARCH SPOTLIGHT", "One big spotlight replaces 21 cramped search boxes. Facets, threat chips, and entity pickers over the same /entities engine.", "search"],
+  ["04", "FACETED SEARCH + GEO FILTERS", "Cross-cut by type, facet, tag, threat, project, bbox and radius (haversine). List or pivot straight to the map.", "search"],
+  ["05", "LINK-ANALYSIS EXPLORER", "LOD graph: overview supernodes → drill → local BFS (depth 3) → bidirectional path. Cytoscape card nodes, 10k cap, clearance-gated.", "explorer"],
+  ["06", "GLOBE + PATTERN-OF-LIFE", "Leaflet map with clusters, heat, trails, relations, radius & measure, locate, CSV export. Online OSM → offline mbtiles → grid. 500-track replay with scrub.", "geo"],
+  ["07", "WORKFLOW 2.0 BUILDER", "Visual trigger → condition/fork → effect graphs with loop/join/subgraph/agent nodes. Checkpointed, pausable, undoable. Cron + event triggers.", "workflow"],
+  ["08", "PZZ3m REASONING AGENT ZOR", "Tool-using agent with SSE streaming, reasoning tokens, permission round-trips (120s), transcript compaction, stop/resume/edit/undo.", "agent"],
+  ["09", "RISK ASSESSMENT", "Two-wave LLM intel center: deterministic extraction (temp 0) then per-flag read-only verify. Budget-aware, 100-run history.", "risk"],
+  ["10", "ALERTS + NEURAL PROPOSALS", "Alert engine fires async. Neural proposes a closed-enum resolution; human approves → workflow effect executes. Audited.", "alerts"],
+  ["11", "WATCHLISTS + SCORING", "Named entity sets with triage view (needs-attention/high/critical), change feed, stats. Heuristic scoring bulk/single.", "watchlists"],
+  ["12", "PIPELINES + INGEST", "Webhook / incremental / scheduled ETL. Watermark, 1 req/s Nominatim geocode, raw source kept in source_documents for provenance.", "pipelines"],
+  ["13", "CASES + REPORTS", "Group evidence into cases. Scoped report templates → runs → CSV/HTML export + Neural executive narrative. Scheduler baked in.", "reports"],
+  ["14", "TIMELINE + COLLAB", "One cross-object event stream (recordEvent). Team Log, entity notes, subscriptions. Every write lands on the same timeline.", "timeline"],
+  ["15", "PROJECTS + PBAC + AUDIT", "Everything scoped to projects. Read-gated by clearanceGate (open→secret), writes above clearance refused. Full admin audit trail.", "security"],
+  ["16", "PLUGINS", "Admin {manifest, code} rows → blob ES-module import (CSP-safe), allowlisted Madar sandbox, hook bus (entity:opened, tab:switched…). ~500 LOC.", "plugins"],
+  ["17", "OFFLINE + AIR-GAPPED", "Offline mbtiles (tilemaker + Geofabrik) with online→mbtiles→grid fallback. Ed25519 license gate (seats, expiry, rollback detector). Factory reset.", "security"],
+  ["18", "PORTABLE ORG (.PZM)", "Export/import the whole tenancy as one streaming .pzm session with chunked 50k rows, one TX, ID remap inside JSONB, secrets redacted.", "reports"],
 ];
 
 function capHtml(c) {

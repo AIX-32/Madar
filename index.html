@@ -5,17 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Madar - Intelligence Analysis System</title>
-  <meta name="description" content="Object-centric intelligence analysis. Resolve identity, able to hold millions." />
+  <meta name="description" content="Object-centric intelligence analysis. Resolve identity, map it, replay it, automate it. Electron + Fastify + Postgres. Air-gapped, 37k LOC." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="Madar - Intelligence Analysis System" />
-  <meta property="og:description" content="Object-centric intelligence analysis. Resolve identity, able to hold millions." />
+  <meta property="og:description" content="Object-centric intelligence analysis. Resolve identity, map it, replay it, automate it." />
   <meta property="og:image" content="https://aix-32.github.io/Madar/embed.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Madar - Intelligence Analysis System" />
   <meta name="twitter:description"
-    content="Object-centric intelligence analysis. Resolve identity, able to hold millions." />
+    content="Object-centric intelligence analysis. Resolve identity, map it, replay it, automate it." />
   <meta name="twitter:image" content="https://aix-32.github.io/Madar/embed.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,13 +44,13 @@
     <section class="slide-hero" id="hero">
       <div class="ticker-wrap">
         <div class="ticker-inner">
-          <span>OBJECT-CENTRIC ONTOLOGY &nbsp;·&nbsp; ENTITY RESOLUTION &nbsp;·&nbsp; FACETED SEARCH &nbsp;·&nbsp; GLOBE
-            TRACKING &nbsp;·&nbsp; TEMPORAL REPLAY &nbsp;·&nbsp; WORKFLOW AUTOMATION &nbsp;·&nbsp; RISK ASSESSMENT
-            &nbsp;·&nbsp; PZZ3 AGENT &nbsp;·&nbsp; PBAC &nbsp;·&nbsp; AIR-GAPPED &nbsp;·&nbsp; FULL AUDIT
-            &nbsp;·&nbsp;</span><span>OBJECT-CENTRIC ONTOLOGY &nbsp;·&nbsp; ENTITY RESOLUTION &nbsp;·&nbsp; FACETED
-            SEARCH &nbsp;·&nbsp; GLOBE TRACKING &nbsp;·&nbsp; TEMPORAL REPLAY &nbsp;·&nbsp; WORKFLOW AUTOMATION
-            &nbsp;·&nbsp; PIPELINES &nbsp;·&nbsp; PZZ3 AGENT &nbsp;·&nbsp; PBAC &nbsp;·&nbsp; AIR-GAPPED &nbsp;·&nbsp;
-            FULL AUDIT
+          <span>OBJECT-CENTRIC ONTOLOGY &nbsp;·&nbsp; ENTITY RESOLUTION &nbsp;·&nbsp; QSEARCH &nbsp;·&nbsp; LINK ANALYSIS
+            &nbsp;·&nbsp; GLOBE + REPLAY &nbsp;·&nbsp; WORKFLOW 2.0 &nbsp;·&nbsp; PZZ3m AGENT &nbsp;·&nbsp; RISK ASSESSMENT
+            &nbsp;·&nbsp; WATCHLISTS &nbsp;·&nbsp; PLUGINS &nbsp;·&nbsp; OFFLINE TILES &nbsp;·&nbsp; PBAC &nbsp;·&nbsp;
+            AIR-GAPPED &nbsp;·&nbsp; FULL AUDIT &nbsp;·&nbsp;</span><span>OBJECT-CENTRIC ONTOLOGY &nbsp;·&nbsp; ENTITY
+            RESOLUTION &nbsp;·&nbsp; QSEARCH &nbsp;·&nbsp; LINK ANALYSIS &nbsp;·&nbsp; GLOBE + REPLAY &nbsp;·&nbsp;
+            WORKFLOW 2.0 &nbsp;·&nbsp; PZZ3m AGENT &nbsp;·&nbsp; RISK ASSESSMENT &nbsp;·&nbsp; WATCHLISTS &nbsp;·&nbsp;
+            PLUGINS &nbsp;·&nbsp; OFFLINE TILES &nbsp;·&nbsp; PBAC &nbsp;·&nbsp; AIR-GAPPED &nbsp;·&nbsp; FULL AUDIT
             &nbsp;·&nbsp;</span>
         </div>
       </div>
@@ -63,9 +63,8 @@
         </div>
         <div class="hero-right">
           <div>
-            <div class="hr-label">// PLATFORM</div>
-            <p class="hr-desc">Object centric intelligence analysis. One resolved, classified graph: search it, map it,
-              replay it in time, and let the agent act on it.</p>
+            <div class="hr-label">// PLATFORM 37K LOC</div>
+            <p class="hr-desc">Object-centric intelligence analysis. One resolved, classified graph that unifies every entity, relationship and event. Search at scale and act in seconds, even air-gapped.</p>
           </div>
           <div>
             <div class="hr-actions">
@@ -103,9 +102,9 @@
           <div class="zor-title">
             MEET<br />ZOR<span class="zor-italic">.</span>
           </div>
-          <p class="zor-lead">Your intelligence companion. Zor reads the entire Madar graph: people, entities,
-            relationships, tags. It acts on all of it in plain language, with every write gated behind a permission
-            round-trip.</p>
+          <p class="zor-lead">Your intelligence companion. Zor (PZZ3m) reads the entire Madar graph: entities,
+            relationships, cases, alerts, timelines, source docs and acts in plain language, with every write gated
+            behind a permission round-trip, undoable and audited.</p>
         </div>
       </div>
 
@@ -133,11 +132,11 @@
       <div class="zor-queries">
         <span class="zq-label">EXAMPLE QUERIES</span>
         <span class="zq-tag">"resolve duplicates in this batch"</span>
-        <span class="zq-tag">"connections between these two"</span>
+        <span class="zq-tag">"path between these two"</span>
         <span class="zq-tag">"threat analysis on watchlist x"</span>
-        <span class="zq-tag">"risk distribution across org"</span>
-        <span class="zq-tag">"tag all suspicious entries"</span>
         <span class="zq-tag">"draft executive narrative"</span>
+        <span class="zq-tag">"run workflow on this event"</span>
+        <span class="zq-tag">"QSearch: high-threat near Tehran"</span>
       </div>
     </section>
 
@@ -154,18 +153,18 @@
       <div class="sys-cols">
         <div class="sys-col reveal-up">
           <div class="sys-col-tag">CLIENT</div>
-          <p>Electron desktop shell with a tabbed analyst workspace, map and replay surfaces, and a zero-build offline
-            playbook. No browser tab, no drift.</p>
+          <p>Electron desktop shell with tabbed analyst workspace, LOD Explorer (Cytoscape), globe plus heat and replay map
+            (offline mbtiles), QSearch spotlight, and a zero-build offline playbook. No browser tab, no drift.</p>
         </div>
         <div class="sys-col reveal-up">
           <div class="sys-col-tag">SERVER</div>
-          <p>Node + Fastify REST API. Heuristic scoring, workflow and alert engines, and the PZZ3 reasoning agent.
-            Fire-and-forget automation.</p>
+          <p>Node + Fastify REST API. Workflow 2.0 visual graphs, alert engine, scoring + watchlists, PZZ3m agent loop
+            (SSE, permission gates, undo), and a plugin sandbox (blob ES-modules, hooks). Fire-and-forget.</p>
         </div>
         <div class="sys-col reveal-up">
           <div class="sys-col-tag">DATA</div>
-          <p>PostgreSQL 16 with JSONB flexible schema. Secrets at rest under AES-256-GCM. A full audit trail that never
-            forgets.</p>
+          <p>PostgreSQL 16 + JSONB flexible schema + cursor pagination. Secrets under AES-256-GCM, one audit trail,
+            Ed25519 air-gapped licensing, and streaming .pzm org portability (chunked, remapped).</p>
         </div>
       </div>
     </section>
