@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmarks - Madar</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .bench-hero {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 120px 32px 48px
+    }
+
+    .bench-eyebrow {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .24em;
+      color: var(--dim)
+    }
+
+    .bench-title {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: .95;
+      margin-top: 16px;
+      color: var(--off)
+    }
+
+    .bench-lead {
+      color: var(--dim);
+      max-width: 560px;
+      margin-top: 18px;
+      font-size: .95rem
+    }
+
+    .ver-grid {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: rgba(242, 242, 240, .08)
+    }
+
+    .ver-card {
+      background: var(--black);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      border: none
+    }
+
+    .ver-card:hover {
+      background: #0d0d0d
+    }
+
+    .ver-tag {
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--dim)
+    }
+
+    .ver-name {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      letter-spacing: .04em;
+      color: var(--off)
+    }
+
+    .ver-meta {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--dim);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap
+    }
+
+    .ver-desc {
+      color: var(--dim);
+      font-size: .85rem;
+      margin-top: 4px
+    }
+
+    .ver-cta {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: var(--off);
+      margin-top: 12px
+    }
+
+    .ver-card:hover .ver-cta {
+      color: var(--white)
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hd visible">
+    <div class="hd-inner">
+      <a class="hd-word" href="../index.html">MADAR.</a>
+      <nav class="hd-links">
+        <a href="../index.html#capabilities">CAPABILITIES</a>
+        <a href="../index.html#system">SYSTEM</a>
+        <a href="./">BENCHMARKS</a>
+      </nav>
+      <a class="hd-cta" href="../index.html#deploy">GET ACCESS &rarr;</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="bench-hero">
+      <div class="bench-eyebrow">// DEMOS & BENCHMARKS</div>
+      <div class="bench-title">DEMOS<br>AND BENCHMARKS.</div>
+      <p class="bench-lead">Live demos and benchmarks from real runs. Each version is a live run against the shipping
+        stack on a modest device, so keep that in mind.</p>
+    </section>
+
+    <div class="ver-grid">
+      <a class="ver-card" href="./v1.S1526/">
+        <div class="ver-tag">V1.S1526 &middot; 2026-09-15</div>
+        <div class="ver-name">v1.S1526</div>
+        <div class="ver-meta">
+          <span>1,000,011 entities</span>
+          <span>5,002 rels</span>
+          <span>60 cases</span>
+        </div>
+        <p class="ver-desc">Initial 1M import · 1M entities in 4m 36s via COPY · 33k people · hash-partitioned PG 16 ·
+          query latencies from 18 ms to 1.2 s</p>
+        <div class="ver-cta">View report &rarr;</div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="ft">
+    <span class="ft-word">MADAR.</span>
+    <span class="ft-mid">BENCHMARKS</span>
+    <a class="ft-ver" href="../index.html">BACK TO SITE &nearr;</a>
+  </footer>
+</body>
+
+</html>

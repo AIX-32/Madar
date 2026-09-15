@@ -566,37 +566,95 @@ body::after {
   justify-content: center;
 }
 
-.modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; }
-.modal[hidden] { display: none; }
-.modal-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px); }
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+
 .modal-box {
-  position: relative; max-width: 520px; width: 100%;
-  background: #0a0a0a; border: 1px solid rgba(242, 242, 240, 0.14);
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  background: #0a0a0a;
+  border: 1px solid rgba(242, 242, 240, 0.14);
   padding: 44px 40px;
 }
-.modal-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.24em; color: var(--dim); margin-bottom: 20px; }
-.modal-title { font-family: var(--display); font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 0.92; color: var(--off); }
-.modal-lead { color: var(--off); margin-top: 24px; font-size: 0.98rem; }
-.modal-sub { color: var(--dim); margin-top: 10px; font-size: 0.85rem; }
+
+.modal-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: var(--dim);
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  line-height: 0.92;
+  color: var(--off);
+}
+
+.modal-lead {
+  color: var(--off);
+  margin-top: 24px;
+  font-size: 0.98rem;
+}
+
+.modal-sub {
+  color: var(--dim);
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
 .modal-beta {
   margin-top: 24px;
   border: 1px solid rgba(242, 242, 240, 0.14);
   padding: 18px 20px;
   background: #0d0d0d;
 }
+
 .mb-label {
   font-family: var(--mono);
   font-size: 0.68rem;
   letter-spacing: 0.2em;
   color: var(--dim);
 }
+
 .mb-text {
   margin-top: 8px;
   color: var(--off);
   font-size: 0.9rem;
 }
-.modal-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
-button.hbtn { cursor: pointer; background: none; font: inherit; }
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+button.hbtn {
+  cursor: pointer;
+  background: none;
+  font: inherit;
+}
 
 .ft {
   display: flex;
@@ -696,6 +754,7 @@ button.hbtn { cursor: pointer; background: none; font: inherit; }
     grid-template-columns: 1fr;
   }
 }
+
 /* Risk assessment — no-style identity, honest copy, no drama */
 .risk-section {
   max-width: 1440px;
