@@ -19,6 +19,7 @@ const CAPS = [
   ["16", "PLUGINS", "Admin {manifest, code} rows → blob ES-module import (CSP-safe), allowlisted Madar sandbox, hook bus (entity:opened, tab:switched…). ~500 LOC.", "plugins"],
   ["17", "OFFLINE + AIR-GAPPED", "Offline mbtiles (tilemaker + Geofabrik) with online→mbtiles→grid fallback. Ed25519 license gate (seats, expiry, rollback detector). Factory reset.", "security"],
   ["18", "PORTABLE ORG (.PZM)", "Export/import the whole tenancy as one streaming .pzm session with chunked 50k rows, one TX, ID remap inside JSONB, secrets redacted.", "reports"],
+  ["19", "SCALE ARCHITECTURE", "The entity store is partitioned by shard. Events and documents live in a columnar archive, traversal in an in-memory graph, and face vectors in a dedicated store, all rebuilt from Postgres, which stays the source of truth.", "scale"],
 ];
 
 function capHtml(c) {
@@ -53,24 +54,6 @@ const io = new IntersectionObserver(function (entries) {
 document.querySelectorAll(".reveal-left, .reveal-right, .reveal-up").forEach(function (el) {
   io.observe(el);
 });
-
-const spCount = document.getElementById("spCount");
-const TARGET = 1000000000; // ponytail: bumped 21M → 1B with Rust + partitioned PG/ClickHouse/FalkorDB/Qdrant
-const cio = new IntersectionObserver(function (entries) {
-  entries.forEach(function (e) {
-    if (!e.isIntersecting) return;
-    const t0 = performance.now();
-    function tick(now) {
-      const p = Math.min((now - t0) / 1800, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      spCount.textContent = Math.round(TARGET * eased).toLocaleString("en-US");
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-    cio.unobserve(e.target);
-  });
-}, { threshold: 0.4 });
-cio.observe(spCount);
 
 const modal = document.getElementById("modal");
 document.querySelectorAll(".js-modal").forEach(function (btn) {
