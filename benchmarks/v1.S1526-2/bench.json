@@ -1,0 +1,43 @@
+{
+  "version": "v1.S1526-2",
+  "date": "2026-09-15",
+  "entities": 1000011,
+  "people": 33343,
+  "relationships": 5002,
+  "engine": "PostgreSQL 16.14 + pg_trgm + 32 hash partitions",
+  "method": "median of 3 live API runs via Bearer admin",
+  "results_ms": {
+    "list page limit 50": 36.5,
+    "cursor page (next)": 31.7,
+    "search \"Alavi\"": 95.5,
+    "search \"Orion\"": 125.8,
+    "search \"V-000\"": 334.2,
+    "tag filter \"poi\"": 33.2,
+    "tag filter \"travel\"": 29.9,
+    "type \"person\"": 27.1,
+    "type \"vehicle\"": 22.3,
+    "hasGeo filter": 35.2,
+    "get by id": 16.6,
+    "graph overview": 38.7
+  },
+  "vs_v1_S1526_ms": {
+    "list page limit 50": 49.4,
+    "cursor page (next)": 48.6,
+    "search \"Alavi\"": 109.3,
+    "search \"Orion\"": 159.1,
+    "search \"V-000\"": 740.0,
+    "tag filter \"poi\"": 33.0,
+    "tag filter \"travel\"": 35.3,
+    "type \"person\"": 42.7,
+    "type \"vehicle\"": 38.4,
+    "hasGeo filter": 52.5,
+    "get by id": 18.1,
+    "graph overview": 1187.1
+  },
+  "fixes": [
+    "entities.rs: search_text ILIKE only (removed OR name defeats GIN)",
+    "rich search_text (name+aliases+tags+workplace/nationality/extraNotes lowercased)",
+    "indexes: entities_name_trgm, rel_org_deleted, entities_org_object_type_alive",
+    "graph: sum(d) GROUP BY fix, classification=ANY(allowed), transactional do_rebuild, warm_cache_on_boot+overview"
+  ]
+}

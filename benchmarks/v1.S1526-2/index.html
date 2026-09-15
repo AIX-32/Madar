@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v1.S1526-2 - Benchmark - Madar</title>
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      border-radius: 0 !important
+    }
+
+    .bench-hero {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 120px 32px 32px
+    }
+
+    .bench-eyebrow {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .24em;
+      color: var(--dim)
+    }
+
+    .bench-title {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: .95;
+      margin-top: 16px;
+      color: var(--off)
+    }
+
+    .bench-lead {
+      color: var(--dim);
+      max-width: 640px;
+      margin-top: 18px;
+      font-size: .95rem;
+      line-height: 1.6
+    }
+
+    .bench-stats {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      gap: 1px;
+      background: rgba(242, 242, 240, .08)
+    }
+
+    .bench-stat {
+      flex: 1;
+      background: var(--black);
+      padding: 20px 24px;
+      text-align: center
+    }
+
+    .bench-stat .n {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      color: var(--off);
+      line-height: 1
+    }
+
+    .bench-stat .l {
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--dim);
+      margin-top: 8px;
+      text-transform: uppercase
+    }
+
+    .lat-section {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 48px 32px
+    }
+
+    .lat-label {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .24em;
+      color: var(--dim);
+      margin-bottom: 24px
+    }
+
+    .bench-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 90px;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(242, 242, 240, .08);
+      font-size: .85rem
+    }
+
+    .bench-row:last-child {
+      border: 0
+    }
+
+    .bench-label {
+      font-family: var(--mono);
+      font-size: .78rem;
+      color: var(--off);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .bench-track {
+      height: 18px;
+      background: rgba(242, 242, 240, .06);
+      border: 1px solid rgba(242, 242, 240, .12);
+      overflow: hidden
+    }
+
+    .bench-fill {
+      height: 100%;
+      background: var(--off)
+    }
+
+    .bench-fill.old {
+      background: rgba(242, 242, 240, .25)
+    }
+
+    .bench-ms {
+      font-family: var(--mono);
+      font-weight: 400;
+      text-align: right;
+      color: var(--off)
+    }
+
+    .bench-foot {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--dim);
+      margin-top: 20px;
+      letter-spacing: .04em
+    }
+
+    .fix-note {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px 32px;
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--dim);
+      line-height: 1.7
+    }
+
+    .fix-note strong { color: var(--off); font-weight: 400 }
+
+    @media(max-width:700px) {
+      .bench-row {
+        grid-template-columns: 1fr 90px
+      }
+
+      .bench-label {
+        grid-column: 1/-1
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="bench-hero">
+      <div class="bench-eyebrow">// V1.S1526-2 &middot; 2026-09-15 &mdash; FIX</div>
+      <div class="bench-title">V1.S1526-2</div>
+      <p class="bench-lead">Same 1,000,011 entities, same modest device. Search now hits a single <code>search_text</code> GIN
+        (no <code>OR name</code>) and <code>graph/overview</code> serves a warm cache. Bars are median of 3 live API runs.
+        Lower is faster — compare to <a href="../v1.S1526/" style="color:var(--off)">v1.S1526</a>.</p>
+    </section>
+
+    <div class="bench-stats">
+      <div class="bench-stat">
+        <div class="n">1,000,011</div>
+        <div class="l">Entities</div>
+      </div>
+      <div class="bench-stat">
+        <div class="n">33,343</div>
+        <div class="l">People</div>
+      </div>
+      <div class="bench-stat">
+        <div class="n">5,002</div>
+        <div class="l">Relationships</div>
+      </div>
+    </div>
+
+    <section class="lat-section">
+      <div class="lat-label">// LATENCY &mdash; AFTER FIX &nbsp; <span style="opacity:.5">old v1.S1526 in grey</span></div>
+      <div class="bench-row">
+        <div class="bench-label">list page limit 50</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:11%"></div>
+        </div>
+        <div class="bench-ms">36.5 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">cursor page (next)</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:9%"></div>
+        </div>
+        <div class="bench-ms">31.7 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">search "Alavi"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:28%"></div>
+        </div>
+        <div class="bench-ms">95.5 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">search "Orion"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:37%"></div>
+        </div>
+        <div class="bench-ms">125.8 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">search "V-000"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:100%"></div>
+        </div>
+        <div class="bench-ms">334.2 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">tag filter "poi"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:9%"></div>
+        </div>
+        <div class="bench-ms">33.2 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">tag filter "travel"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:8%"></div>
+        </div>
+        <div class="bench-ms">29.9 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">type "person"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:7%"></div>
+        </div>
+        <div class="bench-ms">27.1 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">type "vehicle"</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:6%"></div>
+        </div>
+        <div class="bench-ms">22.3 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">hasGeo filter</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:10%"></div>
+        </div>
+        <div class="bench-ms">35.2 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">get by id</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:6%"></div>
+        </div>
+        <div class="bench-ms">16.6 ms</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">graph overview</div>
+        <div class="bench-track">
+          <div class="bench-fill" style="width:11%"></div>
+        </div>
+        <div class="bench-ms">38.7 ms</div>
+      </div>
+      <p class="bench-foot">Median of 3 runs. Live via app API on 1M live rows. Postgres 16 + pg_trgm + hash-partitioned entities (32 shards).</p>
+
+      <div style="margin-top:20px; font-family:var(--mono); font-size:.72rem; color:var(--dim); display:flex; gap:16px; flex-wrap:wrap">
+        <span>v1.S1526: V-000 740.0 ms → <strong style="color:var(--off)">334.2 ms (−55%)</strong></span>
+        <span>·</span>
+        <span>graph 1187.1 ms → <strong style="color:var(--off)">38.7 ms (−97%)</strong></span>
+        <span>·</span>
+        <span>Orion 159.1 → 125.8 ms (−21%)</span>
+      </div>
+      <a href="../"
+        style="display:inline-block;margin-top:24px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--dim);text-decoration:none;border:1px solid rgba(242,242,240,.12);padding:8px 14px">←
+        Back</a>
+    </section>
+
+    <section class="fix-note">
+      <strong>What changed:</strong> <code>entities.rs:build_filters</code> now uses <code>search_text ILIKE</code> only (dropped <code>OR name ILIKE</code> that defeated the GIN), rich <code>search_text</code> (<code>name + aliases + tags + workplace/nationality/extraNotes</code> lowercased), new <code>entities_name_trgm</code> + <code>rel_org_deleted</code> + <code>entities_org_object_type_alive</code> indexes, warm <code>graph_type_stats/edges</code> cache on boot + transactionally in <code>/graph/overview</code> and <code>do_rebuild</code> (<code>sum(d) GROUP BY id</code> fix, <code>classification = ANY(allowed)</code> instead of <code>CASE rank</code>). Backfill touches rows where <code>search_text = lower(name)</code>.
+    </section>
+  </main>
+
+</body>
+
+</html>
