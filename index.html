@@ -5,17 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Madar - Intelligence Analysis System</title>
-  <meta name="description" content="Object-centric intelligence analysis. One connected graph of the people, places and objects in your data. Search and act on billions of records, fully offline and air-gapped." />
+  <meta name="description" content="Object-centric intelligence analysis. One connected graph of the people, places and objects in your data. Search and act on up to 87 million datapoints, fully offline and air-gapped." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="Madar - Intelligence Analysis System" />
-  <meta property="og:description" content="Object-centric intelligence analysis. One connected graph of the people, places and objects in your data, searchable and actionable offline." />
+  <meta property="og:description" content="Object-centric intelligence analysis. One connected graph of up to 87 million datapoints of people, places and objects, searchable and actionable offline." />
   <meta property="og:image" content="https://aix-32.github.io/Madar/embed.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Madar - Intelligence Analysis System" />
   <meta name="twitter:description"
-    content="Object-centric intelligence analysis. One connected graph of the people, places and objects in your data, searchable and actionable offline." />
+    content="Object-centric intelligence analysis. One connected graph of up to 87 million datapoints of people, places and objects, searchable and actionable offline." />
   <meta name="twitter:image" content="https://aix-32.github.io/Madar/embed.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +31,6 @@
     <div class="hd-inner">
       <a class="hd-word" href="#hero">MADAR.</a>
       <nav class="hd-links">
-        <a href="#zor">AGENT</a>
         <a href="#capabilities">CAPABILITIES</a>
         <a href="#system">SYSTEM</a>
       </nav>
@@ -63,11 +62,11 @@
         <div class="hero-right">
           <div>
             <div class="hr-label">// PLATFORM</div>
-            <p class="hr-desc">One connected picture of the people, places, and objects in your data, duplicates resolved, relationships mapped, every change recorded. It searches and acts even on billions of records, fully offline and air-gapped.</p>
+            <p class="hr-desc">One connected picture of the people, places, and objects in your data, duplicates resolved, relationships mapped, every change recorded. It searches and acts on up to 87 million datapoints, fully offline and air-gapped.</p>
           </div>
           <div>
             <div class="hr-actions">
-              <a href="#zor" class="hbtn fill"><span>Explore the system</span><span class="a">→</span></a>
+              <a href="#capabilities" class="hbtn fill"><span>Explore the system</span><span class="a">→</span></a>
               <a href="#deploy" class="hbtn"><span>Get access</span><span class="a">→</span></a>
             </div>
           </div>
@@ -78,9 +77,9 @@
     <section class="slide-status">
       <span class="sp-label">// SCALE</span>
       <p class="sp-lead">One object graph. Holding up to</p>
-      <div class="sp-version"><span class="sp-count">78,000,000</span><span class="sp-suffix"> DATAPOINTS</span>
+      <div class="sp-version"><span class="sp-count">87</span><span class="sp-suffix"> MILLION DATAPOINTS</span>
       </div>
-      <p class="sp-sub">Read, change, and replay data in seconds.</p>
+      <p class="sp-sub">Entity store shard-partitioned, events in a columnar archive, traversal in memory, all rebuilt from Postgres, the source of truth.</p>
     </section>
 
     <div class="wmarquee" aria-hidden="true">
@@ -94,49 +93,30 @@
       </div>
     </div>
 
-    <section class="zor-section" id="zor">
-      <div class="zor-top">
-        <div class="zor-intro reveal-right">
-          <div class="zor-eyebrow">AI ASSISTANT</div>
-          <div class="zor-title">
-            MEET<br />ZOR<span class="zor-italic">.</span>
-          </div>
-          <p class="zor-lead">An assistant for the Madar graph. Zor (PZZ3m) reads entities,
-            relationships, cases, alerts, timelines and source docs, and acts in plain language, with every write gated
-            behind a permission round-trip, undoable and audited.</p>
+    <section class="risk-section" id="risk">
+      <div class="risk-head reveal-up">
+        <div class="risk-eyebrow">// RISK ASSESSMENT</div>
+        <div class="risk-title">Screen first.<br />Judge after.</div>
+        <p class="risk-lead">A two-pass way to triage a large entity set. Wave 1 screens everyone to keep the cases worth a closer look; Wave 2 checks each flagged entity against its live graph before anything is shown to an analyst.</p>
+      </div>
+      <div class="risk-grid">
+        <div class="risk-card reveal-up">
+          <div class="risk-index">01</div>
+          <div class="risk-card-title">Screen</div>
+          <p class="risk-card-desc">Wave 1 reviews every entity in token-sized chunks and flags only the High/Critical cases. It is tuned for precision over recall - fewer false leads is the point.</p>
+        </div>
+        <div class="risk-card reveal-up">
+          <div class="risk-index">02</div>
+          <div class="risk-card-title">Verify</div>
+          <p class="risk-card-desc">Each flagged entity gets its own read-only research pass with tool access to the graph: entity, relationships, cases and alerts. The verdict has to be traced to evidence it actually reads.</p>
+        </div>
+        <div class="risk-card reveal-up">
+          <div class="risk-index">03</div>
+          <div class="risk-card-title">Decide</div>
+          <p class="risk-card-desc">The analyst keeps the final word: confirm, reject, or hold, then apply. Nothing is written to an entity until a person applies it, and a rejected flag needs an explicit override to go through.</p>
         </div>
       </div>
-
-      <div class="zor-caps">
-        <div class="zor-cap reveal-up">
-          <div class="cap-num">01</div>
-          <div class="cap-title">READS YOUR DATA</div>
-          <p class="cap-desc">Full context on every object, type, relationship and event in the system. Ask anything and
-            get precise answers with provenance.</p>
-        </div>
-        <div class="zor-cap reveal-up">
-          <div class="cap-num">02</div>
-          <div class="cap-title">CONNECTS SOURCES</div>
-          <p class="cap-desc">Draws from entities, cases, alerts, timelines and source documents in one unified
-            reasoning loop.</p>
-        </div>
-        <div class="zor-cap reveal-up">
-          <div class="cap-num">03</div>
-          <div class="cap-title">TAKES ACTION</div>
-          <p class="cap-desc">Don't just ask; delegate. Create entries, fire workflows, launch intel runs, tag entities
-            with a single prompt. Permission-gated.</p>
-        </div>
-      </div>
-
-      <div class="zor-queries">
-        <span class="zq-label">EXAMPLE QUERIES</span>
-        <span class="zq-tag">"resolve duplicates in this batch"</span>
-        <span class="zq-tag">"path between these two"</span>
-        <span class="zq-tag">"threat analysis on watchlist x"</span>
-        <span class="zq-tag">"draft executive narrative"</span>
-        <span class="zq-tag">"run workflow on this event"</span>
-        <span class="zq-tag">"QSearch: high-threat near Tehran"</span>
-      </div>
+      <p class="risk-note reveal-up">No verdicts on their own. Screens and verifications are leads for triage, read-only, and budget-bounded (token cap per run, single active run). A rejected flag can't be applied without an explicit override.</p>
     </section>
 
     <section class="pb-section" id="capabilities">

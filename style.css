@@ -696,3 +696,95 @@ button.hbtn { cursor: pointer; background: none; font: inherit; }
     grid-template-columns: 1fr;
   }
 }
+/* Risk assessment — no-style identity, honest copy, no drama */
+.risk-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 140px 32px 0;
+  border-left: 1px solid rgba(242, 242, 240, 0.08);
+  border-right: 1px solid rgba(242, 242, 240, 0.08);
+}
+
+.risk-head {
+  max-width: 720px;
+}
+
+.risk-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: var(--dim);
+  margin-bottom: 22px;
+}
+
+.risk-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--off);
+  text-transform: uppercase;
+}
+
+.risk-lead {
+  margin-top: 22px;
+  color: var(--dim);
+  max-width: 520px;
+  font-size: 0.95rem;
+}
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(242, 242, 240, 0.08);
+  margin-top: 84px;
+}
+
+.risk-card {
+  background: var(--black);
+  padding: 34px 28px 38px;
+  position: relative;
+}
+
+.risk-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(242, 242, 240, 0.12);
+}
+
+.risk-index {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+  margin-bottom: 16px;
+}
+
+.risk-card-title {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--off);
+  margin-bottom: 12px;
+}
+
+.risk-card-desc {
+  color: var(--dim);
+  font-size: 0.85rem;
+}
+
+.risk-note {
+  margin-top: 40px;
+  max-width: 640px;
+  color: var(--dim);
+  font-size: 0.82rem;
+  font-family: var(--mono);
+  line-height: 1.7;
+}
