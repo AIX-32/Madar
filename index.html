@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Madar - Intelligence Analysis System</title>
-  <meta name="description" content="Object-centric intelligence analysis. Resolve identity, map it, replay it, automate it. Electron + Fastify + Postgres. Air-gapped, 37k LOC." />
+  <meta name="description" content="Object-centric intelligence analysis. Resolve identity, map it, replay it, automate it. Tauri + Rust + Postgres. Air-gapped, 41k LOC." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="Madar - Intelligence Analysis System" />
@@ -63,8 +63,8 @@
         </div>
         <div class="hero-right">
           <div>
-            <div class="hr-label">// PLATFORM 37K LOC</div>
-            <p class="hr-desc">Object-centric intelligence analysis. One resolved, classified graph that unifies every entity, relationship and event. Search at scale and act in seconds, even air-gapped.</p>
+            <div class="hr-label">// PLATFORM 41K LOC</div>
+            <p class="hr-desc">Object-centric intelligence analysis. Tauri + Rust + Postgres. One resolved, classified graph, billion-scale by design. Search at scale and act in seconds, even air-gapped.</p>
           </div>
           <div>
             <div class="hr-actions">
@@ -153,18 +153,15 @@
       <div class="sys-cols">
         <div class="sys-col reveal-up">
           <div class="sys-col-tag">CLIENT</div>
-          <p>Electron desktop shell with tabbed analyst workspace, LOD Explorer (Cytoscape), globe plus heat and replay map
-            (offline mbtiles), QSearch spotlight, and a zero-build offline playbook. No browser tab, no drift.</p>
+          <p>Tauri desktop shell. Tabbed workspace, LOD Explorer, globe with heat/replay, QSearch spotlight. No Electron, no drift.</p>
         </div>
         <div class="sys-col reveal-up">
           <div class="sys-col-tag">SERVER</div>
-          <p>Node + Fastify REST API. Workflow 2.0 visual graphs, alert engine, scoring + watchlists, PZZ3m agent loop
-            (SSE, permission gates, undo), and a plugin sandbox (blob ES-modules, hooks). Fire-and-forget.</p>
+          <p>Rust (Axum) API. Workflow graphs, alerts, scoring, PZZ3m agent loop. Fast, typed, fire-and-forget.</p>
         </div>
         <div class="sys-col reveal-up">
           <div class="sys-col-tag">DATA</div>
-          <p>PostgreSQL 16 + JSONB flexible schema + cursor pagination. Secrets under AES-256-GCM, one audit trail,
-            Ed25519 air-gapped licensing, and streaming .pzm org portability (chunked, remapped).</p>
+          <p>Postgres 16 + pgvector + pg_trgm. PBAC, full audit, air-gapped licensing. Single table today, partitioned + columnar at a billion.</p>
         </div>
       </div>
     </section>

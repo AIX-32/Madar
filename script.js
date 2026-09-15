@@ -55,7 +55,7 @@ document.querySelectorAll(".reveal-left, .reveal-right, .reveal-up").forEach(fun
 });
 
 const spCount = document.getElementById("spCount");
-const TARGET = 21000000;
+const TARGET = 1000000000; // ponytail: bumped 21M → 1B with Rust + partitioned PG/ClickHouse/FalkorDB/Qdrant
 const cio = new IntersectionObserver(function (entries) {
   entries.forEach(function (e) {
     if (!e.isIntersecting) return;
