@@ -55,16 +55,77 @@ document.querySelectorAll(".reveal-left, .reveal-right, .reveal-up").forEach(fun
   io.observe(el);
 });
 
-const modal = document.getElementById("modal");
-document.querySelectorAll(".js-modal").forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
+const DISCORD_URL = "https://discord.gg/jX4Nm9Hq8P";
+
+const COUNTRIES = ("Afghanistan,Albania,Algeria,Andorra,Angola,Argentina,Armenia,Australia,Austria,Azerbaijan,Bahamas,Bahrain,Bangladesh,Barbados,Belarus,Belgium,Belize,Benin,Bhutan,Bolivia,Bosnia and Herzegovina,Botswana,Brazil,Brunei,Bulgaria,Burkina Faso,Burundi,Cambodia,Cameroon,Canada,Cape Verde,Central African Republic,Chad,Chile,China,Colombia,Comoros,Congo (Brazzaville),Congo (Kinshasa),Costa Rica,Croatia,Cuba,Cyprus,Czechia,Denmark,Djibouti,Dominica,Dominican Republic,Ecuador,Egypt,El Salvador,Equatorial Guinea,Eritrea,Estonia,Eswatini,Ethiopia,Fiji,Finland,France,Gabon,Gambia,Georgia,Germany,Ghana,Greece,Greenland,Guatemala,Guinea,Guinea-Bissau,Guyana,Haiti,Honduras,Hong Kong,Hungary,Iceland,India,Indonesia,Iran,Iraq,Ireland,Israel,Italy,Jamaica,Japan,Jordan,Kazakhstan,Kenya,Kiribati,Kuwait,Kyrgyzstan,Laos,Latvia,Lebanon,Lesotho,Liberia,Libya,Liechtenstein,Lithuania,Luxembourg,Macao,Madagascar,Malawi,Malaysia,Maldives,Mali,Malta,Mauritania,Mauritius,Mexico,Moldova,Monaco,Mongolia,Montenegro,Morocco,Mozambique,Myanmar,Namibia,Nauru,Nepal,Netherlands,New Zealand,Nicaragua,Niger,Nigeria,North Korea,North Macedonia,Norway,Oman,Pakistan,Palau,Palestine,Panama,Papua New Guinea,Paraguay,Peru,Philippines,Poland,Portugal,Qatar,Romania,Russia,Rwanda,Samoa,San Marino,Saudi Arabia,Senegal,Serbia,Seychelles,Sierra Leone,Singapore,Slovakia,Slovenia,Solomon Islands,Somalia,South Africa,South Korea,South Sudan,Spain,Sri Lanka,Sudan,Suriname,Sweden,Switzerland,Syria,Taiwan,Tajikistan,Tanzania,Thailand,Togo,Tonga,Trinidad and Tobago,Tunisia,Turkey,Turkmenistan,Tuvalu,Uganda,Ukraine,United Arab Emirates,United Kingdom,United States,Uruguay,Uzbekistan,Vanuatu,Vatican City,Venezuela,Vietnam,Yemen,Zambia,Zimbabwe").split(",");
+
+const countrySel = document.querySelector("#demoForm select[name=country]");
+if (countrySel) {
+  countrySel.insertAdjacentHTML("beforeend",
+    COUNTRIES.map(function (c) { return '<option value="' + c + '">' + c + "</option>"; }).join(""));
+}
+
+const drawer = document.getElementById("drawer");
+const backdrop = document.getElementById("drawerBackdrop");
+let lastFocus = null;
+
+function openDrawer() {
+  lastFocus = document.activeElement;
+  drawer.hidden = false;
+  backdrop.hidden = false;
+  requestAnimationFrame(function () {
+    drawer.classList.add("open");
+    backdrop.classList.add("open");
+  });
+  const first = drawer.querySelector("input[name=firstName]");
+  if (first) first.focus();
+}
+
+function closeDrawer() {
+  drawer.classList.remove("open");
+  backdrop.classList.remove("open");
+  if (lastFocus) lastFocus.focus();
+  setTimeout(function () { drawer.hidden = true; backdrop.hidden = true; }, 400);
+}
+
+document.querySelectorAll(".js-demo").forEach(function (el) {
+  el.addEventListener("click", function (e) {
     e.preventDefault();
-    modal.hidden = false;
+    openDrawer();
   });
 });
-modal.addEventListener("click", function (e) {
-  if (e.target.closest("[data-close]")) modal.hidden = true;
+drawer.addEventListener("click", function (e) {
+  if (e.target.closest("[data-close]")) closeDrawer();
 });
+backdrop.addEventListener("click", closeDrawer);
 document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") modal.hidden = true;
+  if (e.key === "Escape" && !drawer.hidden) closeDrawer();
 });
+
+const demoForm = document.getElementById("demoForm");
+const dError = demoForm.querySelector(".d-error");
+demoForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  dError.hidden = true;
+  if (!demoForm.checkValidity()) { demoForm.reportValidity(); return; }
+  const btn = demoForm.querySelector(".d-submit");
+  btn.disabled = true;
+  const data = Object.fromEntries(new FormData(demoForm).entries());
+  if (data.website) { showSuccess(); return; }
+  fetch("/api/demo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  }).then(function (r) {
+    if (!r.ok) throw new Error("bad status " + r.status);
+    showSuccess();
+  }).catch(function () {
+    btn.disabled = false;
+    dError.hidden = false;
+  });
+});
+
+function showSuccess() {
+  demoForm.hidden = true;
+  document.getElementById("drawerSuccess").hidden = false;
+}
